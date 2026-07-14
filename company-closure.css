@@ -154,8 +154,10 @@
 .pcc_cta_wa:hover{opacity:.9;}
 .sh_reviewed_badge{margin-top:20px;padding:14px 16px;background:rgba(20,110,255,.06);border:1px solid rgba(20,110,255,.18);border-radius:12px;}
 .sh_reviewed_badge_text{font-family:var(--font-inter),sans-serif;font-size:.8125rem;line-height:1.65;color:rgba(255,255,255,.45);margin:0 0 12px;}
-.sh_reviewed_badge_author{display:flex;align-items:center;gap:7px;}
-.sh_reviewed_badge_avatar{width:20px;height:20px;border-radius:50%;object-fit:cover;flex-shrink:0;border:1px solid rgba(20,110,255,.35);}
-.sh_reviewed_badge_byline{font-family:var(--font-inter),sans-serif;font-size:.75rem;font-weight:600;color:rgba(255,255,255,.50);}
-.sh_reviewed_badge_link{color:#146EFF;text-decoration:none;}
-.sh_reviewed_badge_link:hover{text-decoration:underline;}
+.sh_reviewed_badge_author{display:flex;align-items:center;gap:14px;padding:12px;border-radius:12px;background:rgba(20,110,255,.08);border:1px solid rgba(20,110,255,.2);}
+.sh_reviewed_badge_avatar{width:64px;height:64px;border-radius:50%;object-fit:cover;flex-shrink:0;border:2px solid rgba(20,110,255,.4);}
+.sh_reviewed_badge_info{display:flex;flex-direction:column;gap:2px;}
+.sh_reviewed_badge_label{font-family:var(--font-inter),sans-serif;font-size:.6875rem;font-weight:500;color:rgba(255,255,255,.40);margin:0;text-transform:uppercase;letter-spacing:.04em;}
+.sh_reviewed_badge_name{font-family:var(--font-inter),sans-serif;font-size:.9375rem;font-weight:700;color:#fff;text-decoration:none;}
+.sh_reviewed_badge_name:hover{text-decoration:underline;}
+.sh_reviewed_badge_role{font-family:var(--font-inter),sans-serif;font-size:.75rem;font-weight:500;color:#7ab8ff;margin:0;}

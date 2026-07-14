@@ -34,11 +34,13 @@
 .greg_trust_text{font-family:var(--font-inter),sans-serif;font-size:.75rem;color:rgba(255,255,255,.40);}
 .sh_reviewed_badge{margin-top:20px;padding:14px 16px;background:rgba(20,110,255,.06);border:1px solid rgba(20,110,255,.18);border-radius:12px;}
 .sh_reviewed_badge_text{font-family:var(--font-inter),sans-serif;font-size:.8125rem;line-height:1.65;color:rgba(255,255,255,.45);margin:0 0 12px;}
-.sh_reviewed_badge_author{display:flex;align-items:center;gap:7px;}
-.sh_reviewed_badge_avatar{width:20px;height:20px;border-radius:50%;object-fit:cover;flex-shrink:0;border:1px solid rgba(20,110,255,.35);}
-.sh_reviewed_badge_byline{font-family:var(--font-inter),sans-serif;font-size:.75rem;font-weight:600;color:rgba(255,255,255,.50);}
-.sh_reviewed_badge_link{color:#146EFF;text-decoration:none;}
-.sh_reviewed_badge_link:hover{text-decoration:underline;}
+.sh_reviewed_badge_author{display:flex;align-items:center;gap:14px;padding:12px;border-radius:12px;background:rgba(20,110,255,.08);border:1px solid rgba(20,110,255,.2);}
+.sh_reviewed_badge_avatar{width:64px;height:64px;border-radius:50%;object-fit:cover;flex-shrink:0;border:2px solid rgba(20,110,255,.4);}
+.sh_reviewed_badge_info{display:flex;flex-direction:column;gap:2px;}
+.sh_reviewed_badge_label{font-family:var(--font-inter),sans-serif;font-size:.6875rem;font-weight:500;color:rgba(255,255,255,.40);margin:0;text-transform:uppercase;letter-spacing:.04em;}
+.sh_reviewed_badge_name{font-family:var(--font-inter),sans-serif;font-size:.9375rem;font-weight:700;color:#fff;text-decoration:none;}
+.sh_reviewed_badge_name:hover{text-decoration:underline;}
+.sh_reviewed_badge_role{font-family:var(--font-inter),sans-serif;font-size:.75rem;font-weight:500;color:#7ab8ff;margin:0;}
 .greg_form_card{background:rgba(13,13,18,.92);border:1px solid rgba(255,255,255,.10);border-radius:16px;overflow:hidden;backdrop-filter:blur(20px);box-shadow:0 0 80px rgba(151,71,255,.08),0 0 0 1px rgba(255,255,255,.05);}
 .greg_form_price_bar{padding:28px 32px 20px;border-bottom:1px solid rgba(255,255,255,.07);}
 .greg_price_row{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
@@ -213,8 +215,12 @@
       <div class="sh_reviewed_badge">
         <p class="sh_reviewed_badge_text">GST registration done right the first time. Share your business details and documents — our CA verifies everything, prepares the application, and files it on the GST portal. Your GSTIN arrives in 5–7 working days.</p>
         <div class="sh_reviewed_badge_author">
-          <img class="sh_reviewed_badge_avatar" src="image/ca-rinky-vishwakarma.webp" alt="CA Rinky Vishwakarma" width="20" height="20" loading="lazy" decoding="async" sizes="20px">
-          <span class="sh_reviewed_badge_byline">Reviewed by <a href="https://www.linkedin.com/in/rinky-vishwakarma-6798234a/" target="_blank" rel="noopener noreferrer" class="sh_reviewed_badge_link">CA Rinky Vishwakarma</a>, GST &amp; Indirect Tax expert</span>
+          <img class="sh_reviewed_badge_avatar" src="image/ca-rinky-vishwakarma.webp" alt="CA Rinky Vishwakarma" width="64" height="64" loading="lazy" decoding="async" sizes="64px">
+          <div class="sh_reviewed_badge_info">
+            <p class="sh_reviewed_badge_label">Reviewed by</p>
+            <a href="https://www.linkedin.com/in/rinky-vishwakarma-6798234a/" target="_blank" rel="noopener noreferrer" class="sh_reviewed_badge_name">CA Rinky Vishwakarma</a>
+            <p class="sh_reviewed_badge_role">GST &amp; Indirect Tax expert</p>
+          </div>
         </div>
       </div>
     </div>

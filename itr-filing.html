@@ -34,11 +34,13 @@
 .itrf_trust_text{font-family:var(--font-inter),sans-serif;font-size:.75rem;color:rgba(255,255,255,.40);}
 .itrf_reviewed_badge{margin-top:20px;padding:14px 16px;background:rgba(20,110,255,.06);border:1px solid rgba(20,110,255,.18);border-radius:12px;}
 .itrf_reviewed_badge_text{font-family:var(--font-inter),sans-serif;font-size:.8125rem;line-height:1.65;color:rgba(255,255,255,.45);margin:0 0 12px;}
-.itrf_reviewed_badge_author{display:flex;align-items:center;gap:7px;}
-.itrf_reviewed_badge_avatar{width:20px;height:20px;border-radius:50%;object-fit:cover;flex-shrink:0;border:1px solid rgba(20,110,255,.35);}
-.itrf_reviewed_badge_byline{font-family:var(--font-inter),sans-serif;font-size:.75rem;font-weight:600;color:rgba(255,255,255,.50);}
-.itrf_reviewed_badge_link{color:#146EFF;text-decoration:none;}
-.itrf_reviewed_badge_link:hover{text-decoration:underline;}
+.itrf_reviewed_badge_author{display:flex;align-items:center;gap:14px;padding:12px;border-radius:12px;background:rgba(20,110,255,.08);border:1px solid rgba(20,110,255,.2);}
+.itrf_reviewed_badge_avatar{width:64px;height:64px;border-radius:50%;object-fit:cover;flex-shrink:0;border:2px solid rgba(20,110,255,.4);}
+.itrf_reviewed_badge_info{display:flex;flex-direction:column;gap:2px;}
+.itrf_reviewed_badge_label{font-family:var(--font-inter),sans-serif;font-size:.6875rem;font-weight:500;color:rgba(255,255,255,.40);margin:0;text-transform:uppercase;letter-spacing:.04em;}
+.itrf_reviewed_badge_name{font-family:var(--font-inter),sans-serif;font-size:.9375rem;font-weight:700;color:#fff;text-decoration:none;}
+.itrf_reviewed_badge_name:hover{text-decoration:underline;}
+.itrf_reviewed_badge_role{font-family:var(--font-inter),sans-serif;font-size:.75rem;font-weight:500;color:#7ab8ff;margin:0;}
 .itrf_form_card{background:rgba(13,13,18,.92);border:1px solid rgba(255,255,255,.10);border-radius:16px;overflow:hidden;backdrop-filter:blur(20px);box-shadow:0 0 80px rgba(151,71,255,.08),0 0 0 1px rgba(255,255,255,.05);}
 .itrf_form_price_bar{padding:28px 32px 20px;border-bottom:1px solid rgba(255,255,255,.07);}
 .itrf_price_row{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
@@ -248,8 +250,12 @@
       <div class="itrf_reviewed_badge">
         <p class="itrf_reviewed_badge_text">Not sure which ITR form applies to you, or whether the old or new regime saves more? Share your Form 16, 26AS, and investment details — our CA reviews everything, picks the better regime, and files your return before the deadline.</p>
         <div class="itrf_reviewed_badge_author">
-          <img class="itrf_reviewed_badge_avatar" src="image/ca-rinky-vishwakarma.webp" alt="CA Rinky Vishwakarma" width="20" height="20" loading="lazy" decoding="async" sizes="20px">
-          <span class="itrf_reviewed_badge_byline">Reviewed by <a href="https://www.linkedin.com/in/rinky-vishwakarma-6798234a/" target="_blank" rel="noopener noreferrer" class="itrf_reviewed_badge_link">CA Rinky Vishwakarma</a>, Income Tax &amp; Compliance expert</span>
+          <img class="itrf_reviewed_badge_avatar" src="image/ca-rinky-vishwakarma.webp" alt="CA Rinky Vishwakarma" width="64" height="64" loading="lazy" decoding="async" sizes="64px">
+          <div class="itrf_reviewed_badge_info">
+            <p class="itrf_reviewed_badge_label">Reviewed by</p>
+            <a href="https://www.linkedin.com/in/rinky-vishwakarma-6798234a/" target="_blank" rel="noopener noreferrer" class="itrf_reviewed_badge_name">CA Rinky Vishwakarma</a>
+            <p class="itrf_reviewed_badge_role">Income Tax &amp; Compliance expert</p>
+          </div>
         </div>
       </div>
     </div>

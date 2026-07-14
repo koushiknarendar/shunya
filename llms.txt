@@ -33,6 +33,63 @@
 - [Google Ads and Meta Ads Payments from India — 15CA/15CB Requirements](https://shunya.so/15ca-15cb/15ca-15cb-google-ads-meta-ads-india)
 - [All 15CA/15CB Resources](https://shunya.so/15ca-15cb/resources)
 
+## GST Guides
+
+- [How to Register for GST Online in India](https://shunya.so/gst-registration/how-to-register-for-gst-online-india)
+- [GST Registration Documents Required](https://shunya.so/gst-registration/gst-registration-documents-required)
+- [GST Registration Turnover Limit](https://shunya.so/gst-registration/gst-registration-turnover-limit)
+- [Voluntary GST Registration — Pros and Cons](https://shunya.so/gst-registration/voluntary-gst-registration-pros-cons)
+- [GST Registration for E-Commerce Sellers](https://shunya.so/gst-registration/gst-registration-ecommerce-sellers)
+- [How Long Does GST Registration Take?](https://shunya.so/gst-registration/how-long-does-gst-registration-take)
+- [GSTIN Application Rejected — Common Reasons](https://shunya.so/gst-registration/gst-registration-rejected-common-reasons)
+- [Composition Scheme vs Regular GST](https://shunya.so/gst-registration/composition-scheme-vs-regular-gst)
+- [GST Registration for Freelancers](https://shunya.so/gst-registration/gst-registration-freelancers-service-providers)
+- [GSTR-1 vs GSTR-3B vs GSTR-9](https://shunya.so/gst-registration/gstr-1-gstr-3b-gstr-9-difference)
+- [GST Return Filing Due Dates](https://shunya.so/gst-registration/gst-return-filing-due-dates-calendar)
+- [Penalty and Late Fee for GST Return Filing](https://shunya.so/gst-registration/penalty-late-fee-gst-return-filing)
+- [How to File GSTR-3B Online](https://shunya.so/gst-registration/how-to-file-gstr-3b-online)
+- [Nil GST Return Filing](https://shunya.so/gst-registration/nil-gst-return-filing-required)
+- [GST Registration Cancellation](https://shunya.so/gst-registration/gst-registration-cancellation-process)
+- [All GST Resources](https://shunya.so/gst-registration/resources)
+
+## ITR Filing Guides
+
+- [How to File ITR Online in India](https://shunya.so/itr-filing/how-to-file-itr-online-india)
+- [ITR Forms Explained — ITR-1, ITR-2, ITR-3, ITR-4](https://shunya.so/itr-filing/itr-forms-explained-itr1-itr2-itr3-itr4)
+- [Old vs New Tax Regime](https://shunya.so/itr-filing/old-vs-new-tax-regime-which-to-choose)
+- [ITR Filing Documents Required](https://shunya.so/itr-filing/itr-filing-documents-required)
+- [ITR Filing Deadline and Consequences of Missing It](https://shunya.so/itr-filing/itr-filing-deadline-consequences-of-missing-it)
+- [Belated ITR vs Revised ITR](https://shunya.so/itr-filing/belated-itr-revised-itr-difference)
+- [ITR for Salaried Employees](https://shunya.so/itr-filing/itr-for-salaried-employees-what-to-know)
+- [ITR for Freelancers and Consultants](https://shunya.so/itr-filing/itr-for-freelancers-and-consultants)
+- [ITR for Capital Gains](https://shunya.so/itr-filing/itr-for-capital-gains-stocks-mutual-funds-property)
+- [TDS Refund — How to Claim It](https://shunya.so/itr-filing/tds-refund-how-to-claim-in-itr)
+- [Income Tax Notice Under Section 143(1)](https://shunya.so/itr-filing/itr-notice-section-143-1-what-it-means)
+- [How to Verify ITR After Filing](https://shunya.so/itr-filing/how-to-verify-itr-after-filing)
+- [ITR for NRIs with Income in India](https://shunya.so/itr-filing/itr-for-nri-income-in-india)
+- [Presumptive Taxation Scheme — 44AD and 44ADA](https://shunya.so/itr-filing/presumptive-taxation-scheme-44ad-44ada)
+- [ITR Filing Penalty Under Section 234F](https://shunya.so/itr-filing/itr-filing-penalty-section-234f)
+- [All ITR Filing Resources](https://shunya.so/itr-filing/resources)
+
+## Startup India Guides
+
+- [What is DPIIT Recognition and Who is Eligible](https://shunya.so/startup-india/what-is-dpiit-recognition-and-who-is-eligible)
+- [How to Register for Startup India Online](https://shunya.so/startup-india/how-to-register-for-startup-india-online)
+- [Startup India Eligibility Criteria](https://shunya.so/startup-india/startup-india-eligibility-criteria)
+- [Section 80-IAC Tax Exemption for Startups](https://shunya.so/startup-india/section-80-iac-tax-exemption-startups)
+- [Angel Tax Exemption Under Section 56](https://shunya.so/startup-india/angel-tax-exemption-section-56-startups)
+- [Startup India Documents Required](https://shunya.so/startup-india/startup-india-documents-required)
+- [Startup India Recognition Certificate Benefits](https://shunya.so/startup-india/startup-india-recognition-certificate-benefits)
+- [Startup India vs Udyam/MSME Registration](https://shunya.so/startup-india/startup-india-vs-udyam-msme-registration)
+- [Startup India Self-Certification](https://shunya.so/startup-india/startup-india-self-certification-labour-environmental-laws)
+- [Startup India Seed Fund Scheme](https://shunya.so/startup-india/startup-india-seed-fund-scheme)
+- [Startup India Application Rejected — Common Reasons](https://shunya.so/startup-india/startup-india-application-rejected-common-reasons)
+- [Startup India Recognition Validity and Renewal](https://shunya.so/startup-india/startup-india-recognition-validity-renewal)
+- [Startup India Government Tender Relaxation](https://shunya.so/startup-india/startup-india-government-tender-relaxation-public-procurement)
+- [Startup India Patent Fee Rebate](https://shunya.so/startup-india/startup-india-patent-fee-rebate-fast-track-examination)
+- [Startup India Turnover Limit — Rs 100 Crore](https://shunya.so/startup-india/startup-india-eligibility-turnover-limit-100-crore)
+- [All Startup India Resources](https://shunya.so/startup-india/resources)
+
 ## Company Closure Guides
 
 - [How to Close a Private Limited Company in India](https://shunya.so/company-closure/how-to-close-private-limited-company-india)

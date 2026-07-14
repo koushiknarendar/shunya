@@ -37,6 +37,9 @@ function getPriority(slug) {
   if (slug.startsWith("/blogs/")) return 0.6;
   if (slug.startsWith("/15ca-15cb/")) return 0.7;
   if (slug.startsWith("/company-closure/")) return 0.7;
+  if (slug.startsWith("/gst-registration/")) return 0.7;
+  if (slug.startsWith("/itr-filing/")) return 0.7;
+  if (slug.startsWith("/startup-india/")) return 0.7;
   return 0.5;
 }
 
@@ -55,7 +58,7 @@ function collectHtmlFiles(dir, rootDir) {
     const fullPath = path.join(dir, entry.name);
 
     if (entry.isDirectory()) {
-      if (entry.name === "blogs" || entry.name === "15ca-15cb" || entry.name === "company-closure") {
+      if (entry.name === "blogs" || entry.name === "15ca-15cb" || entry.name === "company-closure" || entry.name === "gst-registration" || entry.name === "itr-filing" || entry.name === "startup-india") {
         urls.push(...collectHtmlFiles(fullPath, rootDir));
       }
       continue;

@@ -205,6 +205,25 @@ select.ccfs_input option{background:#161616;color:#fff;}
 @media(min-width:769px){.pcc_step_arrow{display:flex;}}
 .pcc_step_wrap:last-child .pcc_step_arrow{display:none;}
 
+/* ── Expert ── */
+.pcc_expert_section{position:relative;overflow:hidden;background:#0a0a0b;border-top:1px solid rgba(255,255,255,.08);}
+.pcc_expert_glow{position:absolute;top:0;left:50%;transform:translateX(-50%);width:800px;height:400px;background:radial-gradient(ellipse,rgba(20,110,255,.07) 0%,transparent 70%);pointer-events:none;}
+.pcc_expert_inner{position:relative;z-index:10;max-width:900px;margin:0 auto;padding:80px 24px;}
+.pcc_expert_card{background:linear-gradient(135deg,rgba(20,110,255,.06) 0%,rgba(151,71,255,.04) 100%);border:1px solid rgba(20,110,255,.2);border-radius:20px;padding:40px;display:flex;gap:32px;align-items:flex-start;}
+@media(max-width:640px){.pcc_expert_card{flex-direction:column;gap:24px;padding:28px;}}
+.pcc_expert_avatar_wrap{flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:12px;}
+.pcc_expert_avatar{width:160px;height:200px;border-radius:16px;object-fit:cover;border:2px solid rgba(20,110,255,.4);box-shadow:0 12px 32px rgba(0,0,0,.35);}
+.pcc_expert_ca_badge{font-family:var(--font-inter),sans-serif;font-size:.6875rem;font-weight:700;padding:3px 10px;border-radius:9999px;background:rgba(20,110,255,.15);color:#7ab8ff;border:1px solid rgba(20,110,255,.25);white-space:nowrap;}
+.pcc_expert_content{flex:1;}
+.pcc_expert_label{font-family:var(--font-inter),sans-serif;font-size:.75rem;font-weight:600;color:rgba(255,255,255,.35);text-transform:uppercase;letter-spacing:.08em;margin:0 0 8px;}
+.pcc_expert_name{font-family:var(--font-bricolage),sans-serif;font-size:1.5rem;font-weight:700;color:#fff;margin:0 0 4px;}
+.pcc_expert_title{font-family:var(--font-inter),sans-serif;font-size:.875rem;color:#7ab8ff;font-weight:500;margin:0 0 16px;}
+.pcc_expert_bio{font-family:var(--font-inter),sans-serif;font-size:.875rem;color:rgba(255,255,255,.55);line-height:1.75;margin:0 0 20px;}
+.pcc_expert_tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px;}
+.pcc_expert_tag{font-family:var(--font-inter),sans-serif;font-size:.75rem;font-weight:500;padding:4px 12px;border-radius:9999px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.10);color:rgba(255,255,255,.50);}
+.pcc_expert_linkedin{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-inter),sans-serif;font-size:.8125rem;font-weight:600;color:#146EFF;text-decoration:none;transition:opacity .2s;}
+.pcc_expert_linkedin:hover{opacity:.8;}
+
 /* ── Testimonials ── */
 .pcc_testimonials_section{position:relative;overflow:hidden;background:#0d0d12;border-top:1px solid rgba(255,255,255,.08);}
 .pcc_testimonials_glow{position:absolute;top:0;left:50%;transform:translateX(-50%);width:900px;height:400px;background:radial-gradient(ellipse,rgba(151,71,255,.07) 0%,transparent 70%);pointer-events:none;}

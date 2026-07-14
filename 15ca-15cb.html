@@ -112,6 +112,23 @@
 .p15_step_arrow{display:none;position:absolute;right:-16px;top:50%;transform:translateY(-50%);z-index:10;color:rgba(255,255,255,.20);}
 @media(min-width:769px){.p15_step_arrow{display:flex;}}
 .p15_step_wrap:last-child .p15_step_arrow{display:none;}
+.p15_expert_section{position:relative;overflow:hidden;background:#0a0a0b;border-top:1px solid rgba(255,255,255,.08);}
+.p15_expert_glow{position:absolute;top:0;left:50%;transform:translateX(-50%);width:800px;height:400px;background:radial-gradient(ellipse,rgba(20,110,255,.07) 0%,transparent 70%);pointer-events:none;}
+.p15_expert_inner{position:relative;z-index:10;max-width:900px;margin:0 auto;padding:80px 24px;}
+.p15_expert_card{background:linear-gradient(135deg,rgba(20,110,255,.06) 0%,rgba(151,71,255,.04) 100%);border:1px solid rgba(20,110,255,.2);border-radius:20px;padding:40px;display:flex;gap:32px;align-items:flex-start;}
+@media(max-width:640px){.p15_expert_card{flex-direction:column;gap:24px;padding:28px;}}
+.p15_expert_avatar_wrap{flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:12px;}
+.p15_expert_avatar{width:160px;height:200px;border-radius:16px;object-fit:cover;border:2px solid rgba(20,110,255,.4);box-shadow:0 12px 32px rgba(0,0,0,.35);}
+.p15_expert_ca_badge{font-family:var(--font-inter),sans-serif;font-size:.6875rem;font-weight:700;padding:3px 10px;border-radius:9999px;background:rgba(20,110,255,.15);color:#7ab8ff;border:1px solid rgba(20,110,255,.25);white-space:nowrap;}
+.p15_expert_content{flex:1;}
+.p15_expert_label{font-family:var(--font-inter),sans-serif;font-size:.75rem;font-weight:600;color:rgba(255,255,255,.35);text-transform:uppercase;letter-spacing:.08em;margin:0 0 8px;}
+.p15_expert_name{font-family:var(--font-bricolage),sans-serif;font-size:1.5rem;font-weight:700;color:#fff;margin:0 0 4px;}
+.p15_expert_title{font-family:var(--font-inter),sans-serif;font-size:.875rem;color:#7ab8ff;font-weight:500;margin:0 0 16px;}
+.p15_expert_bio{font-family:var(--font-inter),sans-serif;font-size:.875rem;color:rgba(255,255,255,.55);line-height:1.75;margin:0 0 20px;}
+.p15_expert_tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px;}
+.p15_expert_tag{font-family:var(--font-inter),sans-serif;font-size:.75rem;font-weight:500;padding:4px 12px;border-radius:9999px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.10);color:rgba(255,255,255,.50);}
+.p15_expert_linkedin{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-inter),sans-serif;font-size:.8125rem;font-weight:600;color:#146EFF;text-decoration:none;transition:opacity .2s;}
+.p15_expert_linkedin:hover{opacity:.8;}
 .p15_testimonials_section{position:relative;overflow:hidden;background:#0d0d12;border-top:1px solid rgba(255,255,255,.08);}
 .p15_testimonials_glow{position:absolute;top:0;left:50%;transform:translateX(-50%);width:900px;height:400px;background:radial-gradient(ellipse,rgba(151,71,255,.07) 0%,transparent 70%);pointer-events:none;}
 .p15_testimonials_inner{position:relative;z-index:10;max-width:1200px;margin:0 auto;padding:80px 24px;}
@@ -426,6 +443,39 @@
           <h3 class="p15_step_title">15CA filed, you're clear to remit</h3>
           <p class="p15_step_desc">We file Form 15CA on the Income Tax portal and share the acknowledgement — your bank can now process the transfer.</p>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Expert -->
+<section class="p15_expert_section">
+  <div class="p15_expert_glow"></div>
+  <div class="p15_expert_inner">
+    <div class="p15_section_center">
+      <h2 class="p15_section_h2">your 15CA/15CB <strong>expert</strong></h2>
+      <p class="p15_section_sub">every remittance certificate personally issued by a qualified Chartered Accountant.</p>
+    </div>
+    <div class="p15_expert_card">
+      <div class="p15_expert_avatar_wrap">
+        <img class="p15_expert_avatar" src="image/ca-rinky-vishwakarma-portrait.webp" alt="CA Rinky Vishwakarma" width="160" height="200" loading="lazy" decoding="async" sizes="160px">
+        <span class="p15_expert_ca_badge">Chartered Accountant</span>
+      </div>
+      <div class="p15_expert_content">
+        <p class="p15_expert_label">Meet Your Expert</p>
+        <h3 class="p15_expert_name">CA Rinky Vishwakarma</h3>
+        <p class="p15_expert_title">Income Tax &amp; FEMA Specialist</p>
+        <p class="p15_expert_bio">CA Rinky Vishwakarma is a practising Chartered Accountant specialising in foreign remittance compliance under FEMA and the Income Tax Act. She has issued hundreds of Form 15CB certificates for businesses and individuals sending payments abroad — software subscriptions, consulting fees, education costs, and family maintenance. Every Shunya 15CA/15CB filing is personally certified by Rinky before your bank processes the remittance.</p>
+        <div class="p15_expert_tags">
+          <span class="p15_expert_tag">Chartered Accountant</span>
+          <span class="p15_expert_tag">FEMA Expert</span>
+          <span class="p15_expert_tag">Income Tax</span>
+          <span class="p15_expert_tag">Foreign Remittance</span>
+        </div>
+        <a class="p15_expert_linkedin" href="https://www.linkedin.com/in/rinky-vishwakarma-6798234a/" target="_blank" rel="noopener noreferrer">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          View profile on LinkedIn →
+        </a>
       </div>
     </div>
   </div>

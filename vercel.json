@@ -3,6 +3,14 @@
   "outputDirectory": ".",
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    { "source": "/blogs/how-llc-registration-works-and-its-key-business-benefits", "destination": "/blogs/how-llp-registration-works-and-its-key-business-benefits", "permanent": true },
+    { "source": "/blogs/how-to-register-a-limited-company-online-with-companies-house", "destination": "/blogs/how-to-register-a-private-limited-company-online-with-mca", "permanent": true },
+    { "source": "/blogs/how-to-register-an-llc-online-in-the-usa-step-by-step", "destination": "/blogs/how-to-register-an-llp-online-in-india-step-by-step", "permanent": true },
+    { "source": "/blogs/how-to-register-ltd-company-online-in-the-uk", "destination": "/blogs/how-to-register-a-pvt-ltd-company-online-in-india", "permanent": true },
+    { "source": "/blogs/what-is-a-registered-agent-and-why-your-business-needs-one", "destination": "/blogs/what-is-a-registered-office-and-why-your-business-needs-one", "permanent": true },
+    { "source": "/blogs/why-you-need-a-registered-agent-for-llc-and-how-to-choose", "destination": "/blogs/why-you-need-a-registered-office-for-your-llp-and-how-to-choose-one", "permanent": true }
+  ],
   "rewrites": [
     { "source": "/_next/image", "destination": "/api/next-image" },
     { "source": "/startup-india/apply", "destination": "/api/startup-india/apply" },

@@ -32,7 +32,7 @@
 
   var isTouch = ('ontouchstart' in window) || navigator.maxTouchPoints > 0;
 
-  var overlay, form, nameInput, phoneInput, errorEl, submitBtn, successEl, formEl;
+  var overlay, form, nameInput, phoneInput, errorEl, submitBtn, formEl;
   var isOpen = false;
 
   function buildMarkup() {
@@ -43,21 +43,22 @@
           '<button type="button" class="sh-exitpop-close" id="sh-exitpop-close" aria-label="Close">' +
             '<svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M1 1L11 11M11 1L1 11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>' +
           '</button>' +
-          '<div class="sh-exitpop-badge">Before you go</div>' +
-          '<h2 class="sh-exitpop-title" id="sh-exitpop-title">Still have <span>questions?</span></h2>' +
-          '<p class="sh-exitpop-sub">Leave your number and one of our CAs will call you back — no cost, no obligation.</p>' +
+          '<div class="sh-exitpop-expert">' +
+            '<img class="sh-exitpop-avatar" src="image/ca-rinky-vishwakarma.webp" alt="CA Rinky Vishwakarma" width="76" height="76" loading="eager" decoding="async">' +
+            '<div class="sh-exitpop-expert-info">' +
+              '<p class="sh-exitpop-expert-name">CA Rinky Vishwakarma</p>' +
+              '<p class="sh-exitpop-expert-role">Chartered Accountant, Shunya</p>' +
+            '</div>' +
+          '</div>' +
+          '<h2 class="sh-exitpop-title" id="sh-exitpop-title">Talk to <span>Rinky</span> directly</h2>' +
+          '<p class="sh-exitpop-sub">Leave your number and I&rsquo;ll personally call you back to answer your questions — no cost, no obligation.</p>' +
           '<form class="sh-exitpop-form" id="sh-exitpop-form">' +
             '<input class="sh-exitpop-input" type="text" id="sh-exitpop-name" placeholder="Your name (optional)" autocomplete="name">' +
             '<input class="sh-exitpop-input" type="tel" id="sh-exitpop-phone" placeholder="10-digit phone number" autocomplete="tel" inputmode="numeric" required>' +
             '<p class="sh-exitpop-error" id="sh-exitpop-error">Please enter a valid 10-digit phone number.</p>' +
             '<button type="submit" class="sh-exitpop-submit" id="sh-exitpop-submit">Request a Callback</button>' +
           '</form>' +
-          '<div class="sh-exitpop-success" id="sh-exitpop-success">' +
-            '<div class="sh-exitpop-success-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10l4 4 8-8" stroke="#146eff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>' +
-            '<p class="sh-exitpop-success-title">Got it, thank you!</p>' +
-            '<p class="sh-exitpop-success-sub">We’ll call you back shortly.</p>' +
-          '</div>' +
-          '<p class="sh-exitpop-trust">No spam. We typically call back within a few hours.</p>' +
+          '<p class="sh-exitpop-trust">No spam. I typically call back within a few hours.</p>' +
         '</div>' +
       '</div>';
     document.body.appendChild(wrap.firstChild);
@@ -68,7 +69,6 @@
     phoneInput = document.getElementById('sh-exitpop-phone');
     errorEl = document.getElementById('sh-exitpop-error');
     submitBtn = document.getElementById('sh-exitpop-submit');
-    successEl = document.getElementById('sh-exitpop-success');
 
     document.getElementById('sh-exitpop-close').addEventListener('click', function () {
       close(true);
@@ -122,9 +122,7 @@
       .then(function (res) {
         if (!res.ok) throw new Error('request failed');
         storageSet(localStorage, SUBMITTED_KEY, '1');
-        formEl.style.display = 'none';
-        successEl.classList.add('sh-exitpop-show');
-        setTimeout(function () { close(false); }, 2500);
+        location.href = 'thank-you.html';
       })
       .catch(function () {
         submitBtn.disabled = false;

@@ -671,10 +671,10 @@ async function handlePayment() {
   btn.style.opacity = '0.6'; btn.style.cursor = 'not-allowed'; btn.disabled = true;
   btn.innerHTML = 'Setting up payment…';
   try {
-    const res = await fetch('/api/create-order-gstr9', {
+    const res = await fetch('/api/create-order-gst-refund-9c', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name, email, phone, gstin, plan: g9cSelectedPlan }),
+      body: JSON.stringify({ name, email, phone, gstin, service: 'gstr9', plan: g9cSelectedPlan }),
     });
     const data = await res.json();
     if (!res.ok || !data.orderId) throw new Error(data.error || 'Could not initiate payment. Please try again.');

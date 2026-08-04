@@ -533,10 +533,10 @@ async function handlePayment() {
   btn.style.opacity = '0.6'; btn.style.cursor = 'not-allowed'; btn.disabled = true;
   btn.innerHTML = 'Setting up payment…';
   try {
-    const res = await fetch('/api/create-order-gst-refund', {
+    const res = await fetch('/api/create-order-gst-refund-9c', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name, email, phone, gstin }),
+      body: JSON.stringify({ name, email, phone, gstin, service: 'gst-refund' }),
     });
     const data = await res.json();
     if (!res.ok || !data.orderId) throw new Error(data.error || 'Could not initiate payment. Please try again.');

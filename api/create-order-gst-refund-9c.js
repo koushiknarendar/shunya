@@ -1,14 +1,16 @@
-const PLAN_AMOUNTS = {
+const G9C_PLAN_AMOUNTS = {
   gstr9: 199900,
   gstr9c: 599900,
 };
+
+const GST_REFUND_AMOUNT = 299900;
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const { name, email, phone, gstin, plan } = req.body;
+  const { name, email, phone, gstin, service, plan } = req.body;
 
   if (!name || !email || !phone) {
     return res.status(400).json({ error: 'Missing required fields' });
@@ -19,10 +21,35 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: 'Invalid phone number' });
   }
 
-  const selectedPlan = PLAN_AMOUNTS[plan] ? plan : 'gstr9';
-  const amount = PLAN_AMOUNTS[selectedPlan];
+  const isGstr9 = service === 'gstr9';
 
-  const receipt = `SHG9C_${Date.now()}_${Math.random().toString(36).slice(2, 7).toUpperCase()}`;
+  let amount;
+  let receipt;
+  let notes;
+
+  if (isGstr9) {
+    const selectedPlan = G9C_PLAN_AMOUNTS[plan] ? plan : 'gstr9';
+    amount = G9C_PLAN_AMOUNTS[selectedPlan];
+    receipt = `SHG9C_${Date.now()}_${Math.random().toString(36).slice(2, 7).toUpperCase()}`;
+    notes = {
+      name,
+      email,
+      phone: cleanPhone,
+      gstin: gstin || 'Not provided',
+      plan: selectedPlan,
+      service: 'GSTR-9 & GSTR-9C Filing',
+    };
+  } else {
+    amount = GST_REFUND_AMOUNT;
+    receipt = `SHGRFD_${Date.now()}_${Math.random().toString(36).slice(2, 7).toUpperCase()}`;
+    notes = {
+      name,
+      email,
+      phone: cleanPhone,
+      gstin: gstin || 'Not provided',
+      service: 'GST Refund Filing',
+    };
+  }
 
   const credentials = Buffer.from(
     `${process.env.RAZORPAY_KEY_ID}:${process.env.RAZORPAY_KEY_SECRET}`
@@ -38,14 +65,7 @@ export default async function handler(req, res) {
       amount,
       currency: 'INR',
       receipt,
-      notes: {
-        name,
-        email,
-        phone: cleanPhone,
-        gstin: gstin || 'Not provided',
-        plan: selectedPlan,
-        service: 'GSTR-9 & GSTR-9C Filing',
-      },
+      notes,
     }),
   });
 

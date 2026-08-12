@@ -3,7 +3,7 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const { name, phone, page, url } = req.body;
+  const { name, phone, email, gstin, page, url } = req.body;
 
   if (!phone) {
     return res.status(400).json({ error: 'Please provide a phone number.' });
@@ -17,6 +17,8 @@ export default async function handler(req, res) {
   const lead = {
     name: name ? String(name).trim() : 'Not provided',
     phone: cleanPhone,
+    email: email ? String(email).trim() : '',
+    gstin: gstin ? String(gstin).trim() : '',
     page: page ? String(page).trim() : 'Unknown page',
     url: url ? String(url).trim() : '',
   };
@@ -37,11 +39,11 @@ export default async function handler(req, res) {
         body: JSON.stringify({
           from: 'leads@updates.shunya.so',
           to: 'namaste@shunya.so',
-          subject: `New lead: ${lead.name} — exit popup`,
+          subject: `New lead: ${lead.name} — ${lead.page}`,
           html: `
             <div style="font-family:sans-serif;max-width:520px;margin:0 auto;padding:32px 24px;background:#f9f9fb;border-radius:12px;">
               <h2 style="margin:0 0 4px;font-size:18px;color:#111;">New callback request</h2>
-              <p style="margin:0 0 24px;font-size:13px;color:#888;">via exit-intent popup</p>
+              <p style="margin:0 0 24px;font-size:13px;color:#888;">via ${esc(lead.page)}</p>
               <table style="width:100%;border-collapse:collapse;">
                 <tr>
                   <td style="padding:10px 0;border-bottom:1px solid #eee;font-size:13px;color:#555;width:40%;">Name</td>
@@ -51,6 +53,14 @@ export default async function handler(req, res) {
                   <td style="padding:10px 0;border-bottom:1px solid #eee;font-size:13px;color:#555;">Phone</td>
                   <td style="padding:10px 0;border-bottom:1px solid #eee;font-size:13px;color:#111;font-weight:600;">${esc(lead.phone)}</td>
                 </tr>
+                ${lead.email ? `<tr>
+                  <td style="padding:10px 0;border-bottom:1px solid #eee;font-size:13px;color:#555;">Email</td>
+                  <td style="padding:10px 0;border-bottom:1px solid #eee;font-size:13px;color:#111;font-weight:600;">${esc(lead.email)}</td>
+                </tr>` : ''}
+                ${lead.gstin ? `<tr>
+                  <td style="padding:10px 0;border-bottom:1px solid #eee;font-size:13px;color:#555;">GSTIN</td>
+                  <td style="padding:10px 0;border-bottom:1px solid #eee;font-size:13px;color:#111;font-weight:600;">${esc(lead.gstin)}</td>
+                </tr>` : ''}
                 <tr>
                   <td style="padding:10px 0;font-size:13px;color:#555;">Page</td>
                   <td style="padding:10px 0;font-size:13px;color:#111;font-weight:600;">${esc(lead.page)}</td>

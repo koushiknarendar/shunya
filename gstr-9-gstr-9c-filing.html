@@ -67,6 +67,9 @@
 .g9c_input::placeholder{color:rgba(255,255,255,.25);}
 .g9c_submit_btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:14px 24px;border-radius:9999px;border:none;cursor:pointer;font-family:var(--font-inter),sans-serif;font-size:.875rem;font-weight:600;color:#fff;background:linear-gradient(135deg,#146EFF 0%,#0f5cd6 100%);margin-top:4px;transition:opacity .2s;}
 .g9c_submit_btn:hover{opacity:.9;}
+.g9c_pay_secondary_btn{display:flex;align-items:center;justify-content:center;gap:6px;width:100%;padding:11px 24px;border-radius:9999px;border:1px solid rgba(255,255,255,.14);cursor:pointer;font-family:var(--font-inter),sans-serif;font-size:.8125rem;font-weight:600;color:rgba(255,255,255,.6);background:transparent;transition:all .2s;}
+.g9c_pay_secondary_btn:hover{border-color:rgba(20,110,255,.4);color:#7ab8ff;background:rgba(20,110,255,.06);}
+.g9c_lead_success{display:none;color:#4ade80;background:rgba(37,211,102,.1);border:1px solid rgba(37,211,102,.2);border-radius:8px;padding:10px 14px;font-family:var(--font-inter),sans-serif;font-size:.8125rem;text-align:center;}
 .g9c_wa_divider{text-align:center;font-family:var(--font-inter),sans-serif;font-size:.75rem;color:rgba(255,255,255,.35);margin:20px 0 12px;padding-top:20px;border-top:1px solid rgba(255,255,255,.07);}
 .g9c_wa_btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:12px 24px;border-radius:9999px;background:rgba(37,211,102,.12);border:1px solid rgba(37,211,102,.25);color:#4ade80;font-family:var(--font-inter),sans-serif;font-size:.875rem;font-weight:600;text-decoration:none;transition:opacity .2s;}
 .g9c_wa_btn:hover{opacity:.9;}
@@ -307,9 +310,13 @@
               <input class="g9c_input" type="tel" id="i_phone" name="phone" placeholder="enter your phone number"/>
             </div>
             <div id="g9c_error" style="display:none;color:#f87171;background:rgba(248,113,113,0.1);border:1px solid rgba(248,113,113,0.2);border-radius:8px;padding:10px 14px;font-family:var(--font-inter),sans-serif;font-size:.8125rem;"></div>
-            <button type="button" id="g9c_pay_btn" class="g9c_submit_btn" onclick="handlePayment()">
-              Proceed to Payment · ₹1,999
+            <div id="g9c_lead_success" class="g9c_lead_success">Thanks! A CA will call you within the hour.</div>
+            <button type="button" id="g9c_lead_btn" class="g9c_submit_btn" onclick="handleLead()">
+              Request a Callback
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+            <button type="button" id="g9c_pay_btn" class="g9c_pay_secondary_btn" onclick="handlePayment()">
+              Or skip the wait — pay ₹1,999 now →
             </button>
           </div>
           <p class="g9c_wa_divider">or connect instantly</p>
@@ -651,7 +658,43 @@ function selectPlan(key) {
   document.getElementById('g9c_price_old').textContent = '₹' + plan.old.toLocaleString('en-IN');
   document.getElementById('g9c_price_label').innerHTML = plan.label;
   const btn = document.getElementById('g9c_pay_btn');
-  btn.innerHTML = 'Proceed to Payment · ₹' + plan.price.toLocaleString('en-IN') + ' <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
+  btn.innerHTML = 'Or skip the wait — pay ₹' + plan.price.toLocaleString('en-IN') + ' now →';
+}
+
+async function handleLead() {
+  const btn = document.getElementById('g9c_lead_btn');
+  const errEl = document.getElementById('g9c_error');
+  const successEl = document.getElementById('g9c_lead_success');
+  const name = document.getElementById('i_name').value.trim();
+  const gstin = document.getElementById('i_gstin').value.trim();
+  const email = document.getElementById('i_email').value.trim();
+  const phone = document.getElementById('i_phone').value.trim();
+  errEl.style.display = 'none';
+  successEl.style.display = 'none';
+  if (!name || !phone) {
+    errEl.textContent = 'Please fill in your name and phone number.';
+    errEl.style.display = 'block';
+    return;
+  }
+  const originalHTML = btn.innerHTML;
+  btn.style.opacity = '0.6'; btn.style.cursor = 'not-allowed'; btn.disabled = true;
+  btn.innerHTML = 'Sending…';
+  try {
+    const res = await fetch('/api/submit-lead-popup', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, phone, email, gstin, page: 'gstr-9-gstr-9c-filing (' + g9cSelectedPlan + ')', url: window.location.href }),
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || 'Could not submit. Please try again.');
+    successEl.style.display = 'block';
+    btn.style.opacity = ''; btn.style.cursor = ''; btn.disabled = false;
+    btn.innerHTML = 'Request sent ✓';
+  } catch (err) {
+    errEl.textContent = err.message || 'Something went wrong. Please try again.';
+    errEl.style.display = 'block';
+    btn.style.opacity = ''; btn.style.cursor = ''; btn.disabled = false; btn.innerHTML = originalHTML;
+  }
 }
 
 async function handlePayment() {
@@ -662,6 +705,7 @@ async function handlePayment() {
   const email = document.getElementById('i_email').value.trim();
   const phone = document.getElementById('i_phone').value.trim();
   errEl.style.display = 'none';
+  document.getElementById('g9c_lead_success').style.display = 'none';
   if (!name || !email || !phone) {
     errEl.textContent = 'Please fill in your name, email, and phone number.';
     errEl.style.display = 'block';

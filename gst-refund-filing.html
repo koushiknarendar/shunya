@@ -582,7 +582,7 @@ async function handlePayment() {
       name: 'Shunya', description: 'GST Refund Filing', order_id: data.orderId,
       prefill: { name, email, contact: phone },
       theme: { color: '#146EFF' },
-      handler: function () { window.location.href = '/thank-you-gst-refund-filing'; },
+      handler: function () { window.location.href = '/thank-you-payment'; },
     });
     btn.style.opacity = ''; btn.style.cursor = ''; btn.disabled = false; btn.innerHTML = originalHTML;
     rzp.open();

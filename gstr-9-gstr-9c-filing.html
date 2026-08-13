@@ -720,7 +720,7 @@ async function handlePayment() {
       name: 'Shunya', description: 'GSTR-9 & GSTR-9C Filing', order_id: data.orderId,
       prefill: { name, email, contact: phone },
       theme: { color: '#146EFF' },
-      handler: function () { window.location.href = '/thank-you-gstr-9-gstr-9c-filing'; },
+      handler: function () { window.location.href = '/thank-you-payment'; },
     });
     btn.style.opacity = ''; btn.style.cursor = ''; btn.disabled = false; btn.innerHTML = originalHTML;
     rzp.open();

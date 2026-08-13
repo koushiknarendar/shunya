@@ -20,6 +20,7 @@ const EXCLUDE = new Set([
   "thank-you-itr-filing",
   "thank-you-gst-refund-filing",
   "thank-you-gstr-9-gstr-9c-filing",
+  "thank-you-callback",
   "15ca-15cb/15ca-15cb-google-ads-meta-ads-india",
   "15ca-15cb/index",
 ]);

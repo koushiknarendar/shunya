@@ -66,7 +66,6 @@
 .grfd_submit_btn:hover{opacity:.9;}
 .grfd_pay_secondary_btn{display:flex;align-items:center;justify-content:center;gap:6px;width:100%;padding:13px 24px;border-radius:9999px;border:1.5px solid rgba(20,110,255,.45);cursor:pointer;font-family:var(--font-inter),sans-serif;font-size:.8125rem;font-weight:700;color:#7ab8ff;background:rgba(20,110,255,.1);transition:all .2s;}
 .grfd_pay_secondary_btn:hover{border-color:#146EFF;color:#fff;background:rgba(20,110,255,.2);}
-.grfd_lead_success{display:none;color:#4ade80;background:rgba(37,211,102,.1);border:1px solid rgba(37,211,102,.2);border-radius:8px;padding:10px 14px;font-family:var(--font-inter),sans-serif;font-size:.8125rem;text-align:center;}
 .grfd_wa_divider{text-align:center;font-family:var(--font-inter),sans-serif;font-size:.75rem;color:rgba(255,255,255,.35);margin:20px 0 12px;padding-top:20px;border-top:1px solid rgba(255,255,255,.07);}
 .grfd_wa_btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:12px 24px;border-radius:9999px;background:rgba(37,211,102,.12);border:1px solid rgba(37,211,102,.25);color:#4ade80;font-family:var(--font-inter),sans-serif;font-size:.875rem;font-weight:600;text-decoration:none;transition:opacity .2s;}
 .grfd_wa_btn:hover{opacity:.9;}
@@ -271,7 +270,6 @@
               <input class="grfd_input" type="tel" id="g_phone" name="phone" placeholder="enter your phone number"/>
             </div>
             <div id="grfd_error" style="display:none;color:#f87171;background:rgba(248,113,113,0.1);border:1px solid rgba(248,113,113,0.2);border-radius:8px;padding:10px 14px;font-family:var(--font-inter),sans-serif;font-size:.8125rem;"></div>
-            <div id="grfd_lead_success" class="grfd_lead_success">Thanks! A CA will call you within the hour.</div>
             <button type="button" id="grfd_lead_btn" class="grfd_submit_btn" onclick="handleLead()">
               Request a Callback
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -526,13 +524,11 @@
 async function handleLead() {
   const btn = document.getElementById('grfd_lead_btn');
   const errEl = document.getElementById('grfd_error');
-  const successEl = document.getElementById('grfd_lead_success');
   const name = document.getElementById('g_name').value.trim();
   const gstin = document.getElementById('g_gstin').value.trim();
   const email = document.getElementById('g_email').value.trim();
   const phone = document.getElementById('g_phone').value.trim();
   errEl.style.display = 'none';
-  successEl.style.display = 'none';
   if (!name || !phone) {
     errEl.textContent = 'Please fill in your name and phone number.';
     errEl.style.display = 'block';
@@ -549,9 +545,7 @@ async function handleLead() {
     });
     const data = await res.json();
     if (!res.ok) throw new Error(data.error || 'Could not submit. Please try again.');
-    successEl.style.display = 'block';
-    btn.style.opacity = ''; btn.style.cursor = ''; btn.disabled = false;
-    btn.innerHTML = 'Request sent ✓';
+    window.location.href = '/thank-you-callback';
   } catch (err) {
     errEl.textContent = err.message || 'Something went wrong. Please try again.';
     errEl.style.display = 'block';
@@ -567,7 +561,6 @@ async function handlePayment() {
   const email = document.getElementById('g_email').value.trim();
   const phone = document.getElementById('g_phone').value.trim();
   errEl.style.display = 'none';
-  document.getElementById('grfd_lead_success').style.display = 'none';
   if (!name || !email || !phone) {
     errEl.textContent = 'Please fill in your name, email, and phone number.';
     errEl.style.display = 'block';

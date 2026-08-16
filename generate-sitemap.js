@@ -13,7 +13,6 @@ const EXCLUDE = new Set([
   "thank-you",
   "thank-you-ca",
   "thank-you-startup-india",
-  "thank-you-15ca-15cb",
   "thank-you-company-closure",
   "thank-you-ccfs-2026",
   "thank-you-gst-filing",

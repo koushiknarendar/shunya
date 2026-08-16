@@ -63,7 +63,6 @@ Allow: /
 Disallow: /thank-you
 Disallow: /thank-you-ca
 Disallow: /thank-you-startup-india
-Disallow: /thank-you-15ca-15cb
 
 Host: shunya.so
 Sitemap: https://shunya.so/sitemap.xml

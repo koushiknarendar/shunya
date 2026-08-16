@@ -336,13 +336,12 @@
               <input class="p15_input" type="tel" id="f_phone" name="phone" placeholder="enter your phone number"/>
             </div>
             <div id="p15_error" style="display:none;color:#f87171;background:rgba(248,113,113,0.1);border:1px solid rgba(248,113,113,0.2);border-radius:8px;padding:10px 14px;font-family:var(--font-inter),sans-serif;font-size:.8125rem;"></div>
-            <button type="button" id="p15_pay_btn" class="p15_submit_btn" onclick="handlePayment()">
-              Proceed to Payment · ₹1,999
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </button>
-            <button type="button" id="p15_lead_btn" class="p15_secondary_btn" onclick="handleLeadCallback()">
+            <button type="button" id="p15_lead_btn" class="p15_submit_btn" onclick="handleLeadCallback()">
               Request a Callback
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+            <button type="button" id="p15_pay_btn" class="p15_secondary_btn" onclick="handlePayment()">
+              Start now: <s style="opacity:.55;font-weight:500;">₹5,499</s>₹1,999 →
             </button>
           </div>
           <p class="p15_wa_divider">or connect instantly</p>

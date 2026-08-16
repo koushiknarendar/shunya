@@ -67,6 +67,8 @@
 .p15_input::placeholder{color:rgba(255,255,255,.25);}
 .p15_submit_btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:14px 24px;border-radius:9999px;border:none;cursor:pointer;font-family:var(--font-inter),sans-serif;font-size:.875rem;font-weight:600;color:#fff;background:linear-gradient(135deg,#146EFF 0%,#0f5cd6 100%);margin-top:4px;transition:opacity .2s;text-decoration:none;}
 .p15_submit_btn:hover{opacity:.9;}
+.p15_secondary_btn{display:flex;align-items:center;justify-content:center;gap:6px;width:100%;padding:13px 24px;border-radius:9999px;border:1.5px solid rgba(20,110,255,.45);cursor:pointer;font-family:var(--font-inter),sans-serif;font-size:.8125rem;font-weight:700;color:#7ab8ff;background:rgba(20,110,255,.1);transition:all .2s;}
+.p15_secondary_btn:hover{border-color:#146EFF;color:#fff;background:rgba(20,110,255,.2);}
 .p15_wa_divider{text-align:center;font-family:var(--font-inter),sans-serif;font-size:.75rem;color:rgba(255,255,255,.35);margin:20px 0 12px;padding-top:20px;border-top:1px solid rgba(255,255,255,.07);}
 .p15_wa_btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:12px 24px;border-radius:9999px;background:rgba(37,211,102,.12);border:1px solid rgba(37,211,102,.25);color:#4ade80;font-family:var(--font-inter),sans-serif;font-size:.875rem;font-weight:600;text-decoration:none;transition:opacity .2s;}
 .p15_wa_btn:hover{opacity:.9;}
@@ -336,6 +338,10 @@
             <div id="p15_error" style="display:none;color:#f87171;background:rgba(248,113,113,0.1);border:1px solid rgba(248,113,113,0.2);border-radius:8px;padding:10px 14px;font-family:var(--font-inter),sans-serif;font-size:.8125rem;"></div>
             <button type="button" id="p15_pay_btn" class="p15_submit_btn" onclick="handlePayment()">
               Proceed to Payment · ₹1,999
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+            <button type="button" id="p15_lead_btn" class="p15_secondary_btn" onclick="handleLeadCallback()">
+              Request a Callback
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </button>
           </div>
@@ -681,6 +687,52 @@
 
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 <script>
+async function handleLeadCallback() {
+  const btn = document.getElementById('p15_lead_btn');
+  const errEl = document.getElementById('p15_error');
+  const name = document.getElementById('f_name').value.trim();
+  const email = document.getElementById('f_email').value.trim();
+  const phone = document.getElementById('f_phone').value.trim();
+
+  errEl.style.display = 'none';
+
+  if (!name || !phone) {
+    errEl.textContent = 'Please fill in your name and phone number.';
+    errEl.style.display = 'block';
+    return;
+  }
+
+  const originalHTML = btn.innerHTML;
+  btn.style.opacity = '0.6';
+  btn.style.cursor = 'not-allowed';
+  btn.disabled = true;
+  btn.innerHTML = 'Sending…';
+
+  try {
+    const res = await fetch('/api/submit-lead-popup', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, phone, email, page: '15ca-15cb', url: window.location.href }),
+    });
+
+    const data = await res.json();
+
+    if (!res.ok) {
+      throw new Error(data.error || 'Could not submit. Please try again.');
+    }
+
+    window.location.href = '/thank-you-callback';
+
+  } catch (err) {
+    errEl.textContent = err.message || 'Something went wrong. Please try again.';
+    errEl.style.display = 'block';
+    btn.style.opacity = '';
+    btn.style.cursor = '';
+    btn.disabled = false;
+    btn.innerHTML = originalHTML;
+  }
+}
+
 async function handlePayment() {
   const btn = document.getElementById('p15_pay_btn');
   const errEl = document.getElementById('p15_error');

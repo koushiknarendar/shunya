@@ -421,6 +421,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://shunya.so/company-registration/nidhi-company-registration</loc>
+    <lastmod>2026-08-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://shunya.so/company-registration/opc-registration</loc>
     <lastmod>2026-08-18</lastmod>
     <changefreq>monthly</changefreq>
@@ -433,7 +439,19 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://shunya.so/company-registration/producer-company-registration</loc>
+    <lastmod>2026-08-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://shunya.so/company-registration/public-limited-company-registration</loc>
+    <lastmod>2026-08-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://shunya.so/company-registration/section-8-company-registration</loc>
     <lastmod>2026-08-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>

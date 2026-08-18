@@ -138,6 +138,21 @@
 .creg_expert_linkedin{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-inter),sans-serif;font-size:.8125rem;font-weight:600;color:#146EFF;text-decoration:none;transition:opacity .2s;}
 .creg_expert_linkedin:hover{opacity:.8;}
 .creg_faq_section{position:relative;overflow:hidden;background:#0a0a0b;border-top:1px solid rgba(255,255,255,.08);}
+.creg_articles_section{position:relative;overflow:hidden;background:#0a0a0b;border-top:1px solid rgba(255,255,255,.08);}
+.creg_articles_glow{position:absolute;bottom:0;right:0;width:600px;height:400px;background:radial-gradient(ellipse,rgba(20,110,255,.06) 0%,transparent 70%);pointer-events:none;}
+.creg_articles_inner{position:relative;z-index:10;max-width:1200px;margin:0 auto;padding:80px 24px;}
+.creg_articles_grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+@media(max-width:900px){.creg_articles_grid{grid-template-columns:1fr;}}
+.creg_article_card{border-radius:16px;padding:28px;border:1px solid rgba(255,255,255,.07);background:rgba(255,255,255,.03);display:flex;flex-direction:column;gap:20px;text-decoration:none;}
+.creg_article_top{display:flex;align-items:center;justify-content:space-between;}
+.creg_article_tag{font-family:var(--font-inter),sans-serif;font-size:.75rem;font-weight:600;padding:4px 12px;border-radius:9999px;text-transform:uppercase;letter-spacing:.05em;background:rgba(20,110,255,.15);color:#146EFF;border:1px solid rgba(20,110,255,.3);}
+.creg_article_read_time{font-family:var(--font-inter),sans-serif;font-size:.75rem;color:rgba(255,255,255,.25);}
+.creg_article_content{flex:1;}
+.creg_article_title{font-family:var(--font-bricolage),sans-serif;font-size:1rem;font-weight:600;color:#fff;line-height:1.4;margin:0 0 12px;}
+.creg_article_excerpt{font-family:var(--font-inter),sans-serif;font-size:.875rem;color:rgba(255,255,255,.45);line-height:1.65;margin:0;}
+.creg_articles_cta{margin-top:40px;text-align:center;}
+.creg_articles_cta a{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-inter),sans-serif;font-size:.875rem;font-weight:600;color:#7ab8ff;text-decoration:none;}
+.creg_articles_cta a:hover{text-decoration:underline;}
 .creg_faq_glow{position:absolute;bottom:0;left:25%;width:600px;height:300px;background:radial-gradient(ellipse,rgba(20,110,255,.06) 0%,transparent 70%);pointer-events:none;}
 .creg_faq_inner{position:relative;z-index:10;max-width:800px;margin:0 auto;padding:80px 24px;}
 .creg_faq_list{display:flex;flex-direction:column;gap:16px;}
@@ -432,6 +447,55 @@
           View profile on LinkedIn →
         </a>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- Guides -->
+<section class="creg_articles_section">
+  <div class="creg_articles_glow"></div>
+  <div class="creg_articles_inner">
+    <div class="creg_section_center">
+      <h2 class="creg_section_h2">understand <strong>company registration</strong></h2>
+      <p class="creg_section_sub">everything you need to know before starting the process.</p>
+    </div>
+    <div class="creg_articles_grid">
+      <a href="company-registration/company-registration-cost-in-india.html" class="creg_article_card">
+        <div class="creg_article_top">
+          <span class="creg_article_tag">Cost</span>
+          <span class="creg_article_read_time">5 min read</span>
+        </div>
+        <div class="creg_article_content">
+          <h3 class="creg_article_title">How Much Does Company Registration Cost in India?</h3>
+          <p class="creg_article_excerpt">The professional fee, government filing fees, and state stamp duty are three separate numbers. Know what each one covers before you compare quotes.</p>
+        </div>
+      </a>
+      <a href="company-registration/company-registration-process-step-by-step.html" class="creg_article_card">
+        <div class="creg_article_top">
+          <span class="creg_article_tag">Process</span>
+          <span class="creg_article_read_time">6 min read</span>
+        </div>
+        <div class="creg_article_content">
+          <h3 class="creg_article_title">Company Registration Process in India: Step-by-Step</h3>
+          <p class="creg_article_excerpt">Everything routes through SPICe+, the MCA's single integrated incorporation form. Every step from name reservation to Certificate of Incorporation.</p>
+        </div>
+      </a>
+      <a href="company-registration/private-limited-vs-llp-vs-opc-which-to-choose.html" class="creg_article_card">
+        <div class="creg_article_top">
+          <span class="creg_article_tag">Structure</span>
+          <span class="creg_article_read_time">7 min read</span>
+        </div>
+        <div class="creg_article_content">
+          <h3 class="creg_article_title">Private Limited vs LLP vs OPC: Which Should You Choose?</h3>
+          <p class="creg_article_excerpt">All three give you limited liability, but they differ sharply on compliance burden, fundraising fit, and founder count.</p>
+        </div>
+      </a>
+    </div>
+    <div class="creg_articles_cta">
+      <a href="company-registration/resources.html">
+        view all 9 registration guides
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
     </div>
   </div>
 </section>

@@ -77,17 +77,20 @@
 .creg_what_section{position:relative;overflow:hidden;background:#0d0d12;border-bottom:1px solid rgba(255,255,255,.08);}
 .creg_what_glow{position:absolute;top:0;left:50%;transform:translateX(-50%);width:800px;height:300px;background:radial-gradient(ellipse,rgba(20,110,255,.06) 0%,transparent 70%);pointer-events:none;}
 .creg_what_inner{position:relative;z-index:10;max-width:1200px;margin:0 auto;padding:80px 24px;}
-.creg_what_grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
-@media(max-width:900px){.creg_what_grid{grid-template-columns:1fr;}}
+.creg_what_grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;}
+@media(max-width:1100px){.creg_what_grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:600px){.creg_what_grid{grid-template-columns:1fr;}}
 .creg_what_card{border-radius:16px;padding:28px;border:1px solid;display:flex;flex-direction:column;}
 .creg_card_blue{background:rgba(20,110,255,.06);border-color:rgba(20,110,255,.20);}
 .creg_card_purple{background:rgba(151,71,255,.06);border-color:rgba(151,71,255,.20);}
 .creg_card_teal{background:rgba(13,148,136,.06);border-color:rgba(13,148,136,.20);}
+.creg_card_amber{background:rgba(245,158,11,.06);border-color:rgba(245,158,11,.20);}
 .creg_card_header{display:flex;align-items:center;gap:12px;margin:0 0 16px;}
 .creg_card_icon{width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1rem;font-weight:700;color:#fff;flex-shrink:0;}
 .creg_icon_blue{background:#146EFF;}
 .creg_icon_purple{background:#9747ff;}
 .creg_icon_teal{background:#0d9488;}
+.creg_icon_amber{background:#f59e0b;}
 .creg_card_title{font-family:var(--font-inter),sans-serif;font-size:.875rem;font-weight:600;color:#fff;margin:0 0 2px;}
 .creg_card_sub{font-family:var(--font-inter),sans-serif;font-size:.75rem;color:rgba(255,255,255,.40);margin:0;}
 .creg_card_body{font-family:var(--font-inter),sans-serif;font-size:.875rem;color:rgba(255,255,255,.55);line-height:1.65;margin:0 0 16px;flex:1;}
@@ -265,7 +268,7 @@
   <div class="creg_what_inner">
     <div class="creg_section_center">
       <h2 class="creg_section_h2">which structure is <strong>right for you?</strong></h2>
-      <p class="creg_section_sub">every business is different — here's how the three most common structures compare.</p>
+      <p class="creg_section_sub">every business is different — here's how the four most common structures compare.</p>
     </div>
     <div class="creg_what_grid">
       <div class="creg_what_card creg_card_blue">
@@ -291,6 +294,14 @@
         </div>
         <p class="creg_card_body">One Person Company gives a single founder limited liability without needing a co-founder or partner. Converts to a Private Limited company once turnover or capital crosses the prescribed threshold.</p>
         <a class="creg_card_link" href="company-registration/opc-registration.html">Register an OPC →</a>
+      </div>
+      <div class="creg_what_card creg_card_amber">
+        <div class="creg_card_header">
+          <div class="creg_card_icon creg_icon_amber">P</div>
+          <div><p class="creg_card_title">Public Limited</p><p class="creg_card_sub">for large-scale fundraising</p></div>
+        </div>
+        <p class="creg_card_body">Can raise capital from the public via shares or debentures, with no cap on shareholders — needs at least 3 directors and 7 shareholders. Heavier ongoing compliance than Private Limited, and a fit for businesses planning to scale toward an eventual listing.</p>
+        <a class="creg_card_link" href="company-registration/public-limited-company-registration.html">Register a Public Limited company →</a>
       </div>
     </div>
   </div>

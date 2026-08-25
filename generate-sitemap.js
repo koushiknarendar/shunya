@@ -28,7 +28,7 @@ const EXCLUDE = new Set([
 // Priority rules by slug pattern
 function getPriority(slug) {
   if (slug === "/") return 1.0;
-  if (slug === "/15ca-15cb" || slug === "/startup-india" || slug === "/company-closure" || slug === "/ccfs-2026-company-closure" || slug === "/gst-registration" || slug === "/gst-return-filing" || slug === "/itr-filing" || slug === "/gst-refund-filing" || slug === "/gstr-9-gstr-9c-filing" || slug === "/company-registration") return 0.9;
+  if (slug === "/15ca-15cb" || slug === "/startup-india" || slug === "/company-closure" || slug === "/ccfs-2026-company-closure" || slug === "/gst-registration" || slug === "/gst-return-filing" || slug === "/itr-filing" || slug === "/gst-refund-filing" || slug === "/gstr-9-gstr-9c-filing" || slug === "/company-registration" || slug === "/tools") return 0.9;
   if (slug === "/consultation" || slug === "/how-it-works") return 0.8;
   if (slug === "/blogs" || slug === "/about") return 0.7;
   if (
@@ -46,6 +46,7 @@ function getPriority(slug) {
   if (slug.startsWith("/gst-refund-filing/")) return 0.7;
   if (slug.startsWith("/gstr-9-gstr-9c-filing/")) return 0.7;
   if (slug.startsWith("/company-registration/")) return 0.7;
+  if (slug.startsWith("/tools/")) return 0.7;
   return 0.5;
 }
 
@@ -64,7 +65,7 @@ function collectHtmlFiles(dir, rootDir) {
     const fullPath = path.join(dir, entry.name);
 
     if (entry.isDirectory()) {
-      if (entry.name === "blogs" || entry.name === "15ca-15cb" || entry.name === "company-closure" || entry.name === "gst-registration" || entry.name === "itr-filing" || entry.name === "startup-india" || entry.name === "gst-refund-filing" || entry.name === "gstr-9-gstr-9c-filing" || entry.name === "company-registration") {
+      if (entry.name === "blogs" || entry.name === "15ca-15cb" || entry.name === "company-closure" || entry.name === "gst-registration" || entry.name === "itr-filing" || entry.name === "startup-india" || entry.name === "gst-refund-filing" || entry.name === "gstr-9-gstr-9c-filing" || entry.name === "company-registration" || entry.name === "tools") {
         urls.push(...collectHtmlFiles(fullPath, rootDir));
       }
       continue;

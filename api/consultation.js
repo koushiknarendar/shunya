@@ -14,7 +14,7 @@ export default async function handler(req, res) {
     return res.status(400).json({ success: 0, error: 'Invalid phone number' });
   }
 
-  const amount = 39900; // ₹399 in paise
+  const amount = 99900; // ₹999 in paise
   const receipt = `SHCA_${Date.now()}_${Math.random().toString(36).slice(2, 7).toUpperCase()}`;
 
   const credentials = Buffer.from(

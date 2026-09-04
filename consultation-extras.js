@@ -7,7 +7,7 @@
       '<div class="sh-consult-sticky" id="sh-consult-sticky">' +
         '<div class="sh-consult-sticky-info">' +
           '<span class="sh-consult-sticky-label">30–45 min CA consultation</span>' +
-          '<span class="sh-consult-sticky-price">₹399<span>₹499</span></span>' +
+          '<span class="sh-consult-sticky-price">₹999<span>₹1499</span></span>' +
         '</div>' +
         '<button type="button" class="sh-consult-sticky-btn" id="sh-consult-sticky-btn">Book Now →</button>' +
       '</div>';

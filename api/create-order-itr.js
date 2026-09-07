@@ -4,12 +4,20 @@ const PLAN_AMOUNTS = {
   business: 449900,
 };
 
+// Shared with Tax Audit (44AB) — separate plan keys, one endpoint, since the
+// Vercel Hobby plan caps serverless functions at 12 and that cap is already hit.
+const TAX_AUDIT_PLAN_AMOUNTS = {
+  audit_only: 499900,
+  audit_itr: 799900,
+  fo_package: 599900,
+};
+
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const { name, email, phone, plan } = req.body;
+  const { name, email, phone, plan, service } = req.body;
 
   if (!name || !email || !phone) {
     return res.status(400).json({ error: 'Missing required fields' });
@@ -20,10 +28,13 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: 'Invalid phone number' });
   }
 
-  const selectedPlan = PLAN_AMOUNTS[plan] ? plan : 'salaried';
-  const amount = PLAN_AMOUNTS[selectedPlan];
+  const isTaxAudit = service === 'tax_audit';
+  const PLANS = isTaxAudit ? TAX_AUDIT_PLAN_AMOUNTS : PLAN_AMOUNTS;
+  const defaultPlan = isTaxAudit ? 'audit_only' : 'salaried';
+  const selectedPlan = PLANS[plan] ? plan : defaultPlan;
+  const amount = PLANS[selectedPlan];
 
-  const receipt = `SHITR_${Date.now()}_${Math.random().toString(36).slice(2, 7).toUpperCase()}`;
+  const receipt = `${isTaxAudit ? 'SHAUDIT' : 'SHITR'}_${Date.now()}_${Math.random().toString(36).slice(2, 7).toUpperCase()}`;
 
   const credentials = Buffer.from(
     `${process.env.RAZORPAY_KEY_ID}:${process.env.RAZORPAY_KEY_SECRET}`
@@ -44,7 +55,7 @@ export default async function handler(req, res) {
         email,
         phone: cleanPhone,
         plan: selectedPlan,
-        service: 'ITR Filing',
+        service: isTaxAudit ? 'Tax Audit (44AB)' : 'ITR Filing',
       },
     }),
   });

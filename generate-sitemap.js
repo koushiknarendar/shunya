@@ -21,6 +21,8 @@ const EXCLUDE = new Set([
   "thank-you-gstr-9-gstr-9c-filing",
   "thank-you-callback",
   "thank-you-payment",
+  "thank-you-tax-audit",
+  "thank-you-tax-audit-callback",
   "15ca-15cb/15ca-15cb-google-ads-meta-ads-india",
   "15ca-15cb/index",
 ]);
@@ -28,7 +30,8 @@ const EXCLUDE = new Set([
 // Priority rules by slug pattern
 function getPriority(slug) {
   if (slug === "/") return 1.0;
-  if (slug === "/15ca-15cb" || slug === "/startup-india" || slug === "/company-closure" || slug === "/ccfs-2026-company-closure" || slug === "/gst-registration" || slug === "/gst-return-filing" || slug === "/itr-filing" || slug === "/gst-refund-filing" || slug === "/gstr-9-gstr-9c-filing" || slug === "/company-registration" || slug === "/tools") return 0.9;
+  if (slug === "/15ca-15cb" || slug === "/startup-india" || slug === "/company-closure" || slug === "/ccfs-2026-company-closure" || slug === "/gst-registration" || slug === "/gst-return-filing" || slug === "/itr-filing" || slug === "/gst-refund-filing" || slug === "/gstr-9-gstr-9c-filing" || slug === "/company-registration" || slug === "/tools" || slug === "/tax-audit-44ab") return 0.9;
+  if (slug === "/tax-audit-for-traders" || slug === "/tax-audit-due-date" || slug === "/form-3cd-filing" || slug === "/tax-audit-applicability-calculator") return 0.8;
   if (slug === "/consultation" || slug === "/how-it-works") return 0.8;
   if (slug === "/blogs" || slug === "/about") return 0.7;
   if (
@@ -47,6 +50,7 @@ function getPriority(slug) {
   if (slug.startsWith("/gstr-9-gstr-9c-filing/")) return 0.7;
   if (slug.startsWith("/company-registration/")) return 0.7;
   if (slug.startsWith("/tools/")) return 0.7;
+  if (slug.startsWith("/tax-audit-44ab/")) return 0.7;
   return 0.5;
 }
 
